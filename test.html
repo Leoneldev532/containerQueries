@@ -1,71 +1,38 @@
-<div class="screen">
-  <div class="card"></div>
-  <div class="bloc">
-    <button class="btn1">START</button>
-    <button class="btn2">STOP</button>
-    <button class="btn3">END</button>
-  </div>
+<div class="card-container">
+  <div class="block"></div>
 </div>
 
 <style>
   body {
-    padding: 0;
-    margin: 0;
-  }
-  .screen {
-    height: 100vh;
-    background-color: rgb(250, 171, 171);
     display: flex;
-    flex-direction: column;
-    gap: 14px;
     justify-content: center;
     align-items: center;
   }
-  .card {
-    height: 100px;
-    width: 100px;
-    border-radius: 10px;
-    background-color: red;
-    animation: rotatexp 2.5s linear 1 alternate;
-    animation-play-state: paused;
+
+  .card-container {
+    height: 550px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 14px;
+    background-color: rgb(240, 178, 86);
+    container-type: inline-size;
+    container-name: testContainerqueries;
   }
 
-  @keyframes rotatexp {
-    0% {
-      transform: translateX(0px);
+  .block {
+    height: 150px;
+    width: 150px;
+    border-radius: 10%;
+    background-color: blue;
+    transition: all 0.5s ease;
+  }
+
+  @container testContainerqueries (max-width: 500px) {
+    .block {
+      background-color: red;
+      border-radius: 50%;
     }
-    100% {
-      transform: translateX(860px);
-    }
-  }
-  .bloc {
-    display: flex;
-    gap: 14px;
-  }
-  button {
-    padding: 14px;
-    border: 2px solid rgb(202, 113, 29);
-    border-radius: 8px;
-    background-color: rgb(226, 140, 59);
-    font-weight: 700;
-  }
-  button:hover {
-    background-color: transparent;
-    cursor: pointer;
   }
 </style>
-
-<script>
-  const card = document.querySelector(".card");
-  const btn1 = document.querySelector(".btn1");
-  const btn2 = document.querySelector(".btn2");
-  const bnt3 = document.querySelector(".bnt3");
-
-  btn1.addEventListener("click", () => {
-    card.style.animationPlayState = "running";
-  });
-
-  btn2.addEventListener("click", () => {
-    card.style.animationPlayState = "paused";
-  });
-</script>
